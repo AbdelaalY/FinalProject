@@ -1,9 +1,9 @@
 
 tictacfeet[] toes = new tictacfeet[9];
 boolean player = false;
+
 void setup() {
   size(500, 500);
-
 
   toes[0] = new tictacfeet(20, 20, 0);
   toes[1]= new tictacfeet(60, 20, 0);
@@ -17,6 +17,7 @@ void setup() {
 }
 
 public class tictacfeet {
+  //bruh is the indicator of a circle = 1 ,x = -1 , or nothing = 0;
   private int x = 0;
   private int y = 0;
   private int bruh = 0;
@@ -38,8 +39,6 @@ public class tictacfeet {
 
   public void clickcheck(int mousex, int mousey) {
     if (bruh == 0 && mousex<= x+23 && mousex>= x-23 && mousey<= y+23 && mousey>= y-23 ) {     
-     fill(200,200,200);
-     rect(0,0,200,200);
       if (player == false) {
         bruh = 1;
         player = true;
@@ -64,6 +63,7 @@ public class tictacfeet {
   }
 
   void draw() {
+    background(200);
      toes[0].showPlayer();
     for (tictacfeet x : toes) {
       x.show();         
