@@ -16,6 +16,7 @@ void draw(){
 public void keyPressed(){
   if(key=='7'&&a==0){
     a=player;
+    winCondition();
   if(player==1){
     player=2;
   }else{
@@ -26,6 +27,7 @@ public void keyPressed(){
   
   if(key=='8'&&b==0){
     b=player;
+    winCondition();
   if(player==1){
     player=2;
   }else{
@@ -36,6 +38,7 @@ public void keyPressed(){
   
   if(key=='9'&&c==0){
     c=player;
+    winCondition();
   if(player==1){
     player=2;
   }else{
@@ -46,6 +49,7 @@ public void keyPressed(){
   
   if(key=='4'&&d==0){
     d=player;
+    winCondition();
   if(player==1){
     player=2;
   }else{
@@ -56,6 +60,7 @@ public void keyPressed(){
   
   if(key=='5'&&e==0){
     e=player;
+    winCondition();
   if(player==1){
     player=2;
   }else{
@@ -66,6 +71,7 @@ public void keyPressed(){
   
   if(key=='6'&&f==0){
     f=player;
+    winCondition();
   if(player==1){
     player=2;
   }else{
@@ -76,6 +82,7 @@ public void keyPressed(){
   
   if(key=='1'&&g==0){
     g=player;
+    winCondition();
   if(player==1){
     player=2;
   }else{
@@ -86,6 +93,7 @@ public void keyPressed(){
   
   if(key=='2'&&h==0){
     h=player;
+    winCondition();
   if(player==1){
     player=2;
   }else{
@@ -96,6 +104,7 @@ public void keyPressed(){
   
   if(key=='3'&&i==0){
     i=player;
+    winCondition();
   if(player==1){
     player=2;
   }else{
@@ -103,10 +112,9 @@ public void keyPressed(){
   }
   one++;
   }
-  winCondition();
 }
 public void winCondition(){
-  if(a==b&&a==c||a==b&&a==c||a==b&&a==c){
+  if((a==b&&a==c&&a!=0)||(d==e&&d==f&&d!=0)||(g==h&&g==i&&g!=0)||(a==d&&d==g&&a!=0)||(b==e&&e==h&&b!=0)||(c==f&&f==i&&c!=0)||(a==e&&e==i&&a!=0)||(c==e&&e==g&&c!=0)){
     System.out.println("Player "+player+" wins!");
     one--;
   }
