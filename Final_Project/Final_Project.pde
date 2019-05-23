@@ -1,19 +1,19 @@
 
-tictacfeet[] toes = new tictacfeet[9];
+tictacfeet[][] toes = new tictacfeet[3][3];
 boolean player = false;
 
 void setup() {
   size(500, 500);
 
-  toes[0] = new tictacfeet(20, 20, 0);
-  toes[1]= new tictacfeet(60, 20, 0);
-  toes[2]= new tictacfeet(100, 20, 0);
-  toes[3] = new tictacfeet(20, 60, 0);
-  toes[4]= new tictacfeet(60, 60, 0);
-  toes[5] = new tictacfeet(100, 60, 0);
-  toes[6] = new tictacfeet(20, 100, 0);
-  toes[7] = new tictacfeet(60, 100, 0);
-  toes[8] = new tictacfeet(100, 100, 0);
+  toes[0][0] = new tictacfeet(20, 20, 0);
+  toes[0][1]= new tictacfeet(60, 20, 0);
+  toes[0][2]= new tictacfeet(100, 20, 0);
+  toes[1][0]= new tictacfeet(20, 60, 0);
+  toes[1][1]= new tictacfeet(60, 60, 0);
+  toes[1][2] = new tictacfeet(100, 60, 0);
+  toes[2][0] = new tictacfeet(20, 100, 0);
+  toes[2][1] = new tictacfeet(60, 100, 0);
+  toes[2][2] = new tictacfeet(100, 100, 0);
 }
 
 public class tictacfeet {
@@ -48,28 +48,27 @@ public class tictacfeet {
       }
     }
   }
-   public void showPlayer(){
-   if(player == false)
-   text("It is Player 1's turn",250,250);
-   else if(player== true)
-   text("It is Player 2's turn",250,250);
-   }
   
+  
+  public void showPlayer() {
+    if (player == false)
+      text("It is Player 1's turn", 250, 250);
+    else if (player== true)
+      text("It is Player 2's turn", 250, 250);
+  }
 }
 
-  void mouseClicked() {   
-    for (tictacfeet x : toes)
-      x.clickcheck(mouseX, mouseY);
-  }
+void mouseClicked() {   
+  
+  for (int x = 0; x<toes.length; x++)
+  for(int y = 0; y<toes[x].length; y++)
+    toes[x][y].clickcheck(mouseX, mouseY);
+}
 
-  void draw() {
-    background(200);
-     toes[0].showPlayer();
-    for (tictacfeet x : toes) {
-      x.show();         
-    }
-    
-     
-    
-    
+void draw() {
+  background(200);
+  toes[0][0].showPlayer();
+  for (int x = 0; x<toes.length; x++)
+  for(int y = 0; y<toes[x].length; y++)
+    toes[x][y].show();
   }
