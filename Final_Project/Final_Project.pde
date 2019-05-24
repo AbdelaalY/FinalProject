@@ -28,6 +28,9 @@ public class tictacfeet {
     bruh = thing;
   }
 
+  public int getBruh() {
+    return bruh;
+  }
   public void show() {
     if (bruh == 1) 
       ellipse(x, y, 30, 30);
@@ -48,27 +51,43 @@ public class tictacfeet {
       }
     }
   }
-  
-  
+
+
   public void showPlayer() {
-    if (player == false)
+    if (winCheckRow(0) || winCheckRow(1) || winCheckRow(2)) {
+      if (player == false) {
+         text("Player 2 wins!", 250, 250);
+      } else if (player == true)
+        text("Player 1 wins!", 250, 250);
+    }else if (player == false)
       text("It is Player 1's turn", 250, 250);
     else if (player== true)
       text("It is Player 2's turn", 250, 250);
   }
+
+
+  public boolean winCheckRow(int row) {     
+      if (toes[row][0].getBruh() !=0 && toes[row][1].getBruh() !=0 && toes[row][2].getBruh() != 0 && toes[row][0].getBruh() == toes[row][1].getBruh() && toes[row][2].getBruh() == toes[row][0].getBruh()) {
+        return true;
+      }
+    return false;
+  }
 }
 
+
+
 void mouseClicked() {   
-  
+
   for (int x = 0; x<toes.length; x++)
-  for(int y = 0; y<toes[x].length; y++)
-    toes[x][y].clickcheck(mouseX, mouseY);
+    for (int y = 0; y<toes[x].length; y++) {
+      toes[x][y].clickcheck(mouseX, mouseY);
+    }
 }
 
 void draw() {
   background(200);
   toes[0][0].showPlayer();
   for (int x = 0; x<toes.length; x++)
-  for(int y = 0; y<toes[x].length; y++)
-    toes[x][y].show();
-  }
+    for (int y = 0; y<toes[x].length; y++)
+      toes[x][y].show();
+}
