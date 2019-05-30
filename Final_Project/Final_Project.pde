@@ -100,7 +100,10 @@ void setup() {
 
 void mouseClicked() {
   //if(page==0)
-  //  if(player)
+  //  if(mouseX&&mouseX&&mouseY&&mouseY)
+  //    page==1;
+  //  else if(mouseX&&mouseX&&mouseY&&mouseY)
+  //    page==2;
   //else if(page==1)
   for(int b = 0; b<toes.length; b++)
     for(int x = 0; x<toes[b].length; x++)
@@ -131,6 +134,7 @@ void draw() {
     text(mouseY, mouseX+25, mouseY);
     textSize(25);
     text("Welcome to DonkMonk: \n   Choose your game!", 100, 50);
+    textSize(12);
   }else if(page==1){
     background(0, 202, 233);
     text(mouseX, mouseX, mouseY);
