@@ -1,8 +1,11 @@
 tictacfeet[][][] toes = new tictacfeet[9][3][3];
 private boolean player;
+private int page = 0;
 
 void setup() {
   size(500, 500);
+//tictacfeet setup
+  
 //[board][row][column]
   toes[0][0][0] = new tictacfeet(0, 20, 20, 0);
   toes[0][0][1] = new tictacfeet(0, 60, 20, 0);
@@ -95,38 +98,58 @@ void setup() {
   toes[8][2][2] = new tictacfeet(0, 340, 340, 0);
 }
 
-void mouseClicked() {   
+void mouseClicked() {
+  //if(page==0)
+  //  if(player)
+  //else if(page==1)
   for(int b = 0; b<toes.length; b++)
     for(int x = 0; x<toes[b].length; x++)
       for(int y = 0; y<toes[b][x].length; y++)
         toes[b][x][y].clickcheck(mouseX, mouseY);
+
 }
+//player access
 public boolean getPlayer(){
   return player;
 }
-
 public void setPlayer(boolean p){
   player=p;
 }
 
+//page access
+public int getPage(){
+  return page;
+}
+public void setPage(int p){
+  page=p;
+}
+
 void draw() {
-  background(0, 202, 233);
-  text(mouseX, mouseX, mouseY);
-  text(mouseY, mouseX+25, mouseY);
-  toes[0][0][0].showPlayer();
-  //board setup
-  strokeWeight(3);
-  line(120, 10, 120, 350);
-  line(240, 10, 240, 350);
-  line(10, 120, 350, 120);
-  line(10, 240, 350, 240);
-  strokeWeight(1);
-  //things that need to happen per board/tile
-  for(int b = 0; b<toes.length; b++){
-    toes[b][0][0].drawBoard(b);
-    toes[b][0][0].winCondition();
-    for (int x = 0; x<toes[b].length; x++)
-      for(int y = 0; y<toes[b][x].length; y++)
-        toes[b][x][y].drawTile();
+  if(page==0){
+    background(0);
+    text(mouseX, mouseX, mouseY);
+    text(mouseY, mouseX+25, mouseY);
+    textSize(25);
+    text("Welcome to DonkMonk: \n   Choose your game!", 100, 50);
+  }else if(page==1){
+    background(0, 202, 233);
+    text(mouseX, mouseX, mouseY);
+    text(mouseY, mouseX+25, mouseY);
+    toes[0][0][0].showPlayer();
+    //board setup
+    strokeWeight(3);
+    line(120, 10, 120, 350);
+    line(240, 10, 240, 350);
+    line(10, 120, 350, 120);
+    line(10, 240, 350, 240);
+    strokeWeight(1);
+    //things that need to happen per board/tile
+    for(int b = 0; b<toes.length; b++){
+      toes[b][0][0].drawBoard(b);
+      toes[b][0][0].winCondition();
+      for (int x = 0; x<toes[b].length; x++)
+        for(int y = 0; y<toes[b][x].length; y++)
+          toes[b][x][y].drawTile();
+    }
   }
 }
