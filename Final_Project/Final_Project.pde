@@ -1,4 +1,5 @@
 tictacfeet[][][] toes = new tictacfeet[9][3][3];
+private boolean player;
 
 void setup() {
   size(500, 500);
@@ -100,16 +101,32 @@ void mouseClicked() {
       for(int y = 0; y<toes[b][x].length; y++)
         toes[b][x][y].clickcheck(mouseX, mouseY);
 }
+public boolean getPlayer(){
+  return player;
+}
+
+public void setPlayer(boolean p){
+  player=p;
+}
 
 void draw() {
   background(200);
   text(mouseX, mouseX, mouseY);
   text(mouseY, mouseX+25, mouseY);
   toes[0][0][0].showPlayer();
+  //board setup
+  strokeWeight(3);
+  line(120, 10, 120, 350);
+  line(240, 10, 240, 350);
+  line(10, 120, 350, 120);
+  line(10, 240, 350, 240);
+  strokeWeight(1);
+  //things that need to happen per board/tile
   for(int b = 0; b<toes.length; b++){
+    toes[b][0][0].drawBoard(b);
     toes[b][0][0].winCondition();
     for (int x = 0; x<toes[b].length; x++)
       for(int y = 0; y<toes[b][x].length; y++)
-        toes[b][x][y].show();
+        toes[b][x][y].drawTile();
   }
 }

@@ -4,7 +4,7 @@ public class tictacfeet {
   private int x = 0;
   private int y = 0;
   private int piece = 0;
-  private boolean player = false;
+  
 
   tictacfeet(int b, int l, int h, int indicator) {
     board = b;
@@ -13,32 +13,32 @@ public class tictacfeet {
     piece = indicator;
   }
 
-  public void show() {
-    if (piece == 1) 
+  public void drawTile() {
+    if(piece == 1) 
       ellipse(x, y, 30, 30);
-    else if (piece == -1) {
+    else if(piece == -1) {
       line(x-10, y-10, x+10, y+10);
       line(x+10, y-10, x-10, y+10);
     }
   }
 
   public void clickcheck(int mousex, int mousey) {
-    if (piece == 0 && mousex<= x+23 && mousex>= x-23 && mousey<= y+23 && mousey>= y-23 ) {     
-      if (player == false) {
+    if(piece == 0 && mousex<= x+23 && mousex>= x-23 && mousey<= y+23 && mousey>= y-23) {     
+      if(getPlayer() == false) {
         piece = 1;
-        player = true;
+        setPlayer(true);
       } else { 
         piece = -1; 
-        player = false;
+        setPlayer(false);
       }
     }
   }
   
   
   public void showPlayer() {
-    if (player == false)
+    if(getPlayer() == false)
       text("It is Player 1's turn", 250, 380);
-    else if (player == true)
+    else if (getPlayer() == true)
       text("It is Player 2's turn", 250, 380);
   }
   
@@ -68,5 +68,12 @@ public class tictacfeet {
         text("Player 2 wins!", 100, 250);
       }
     }
+  }
+  
+  public void drawBoard(int boardValue){
+    line(toes[boardValue][0][0].x+20, toes[boardValue][0][0].y-10, toes[boardValue][2][0].x+20, toes[boardValue][2][0].y+10);
+    line(toes[boardValue][0][1].x+20, toes[boardValue][0][1].y-10, toes[boardValue][2][1].x+20, toes[boardValue][2][1].y+10);
+    line(toes[boardValue][0][0].x-10, toes[boardValue][0][0].y+20, toes[boardValue][0][2].x+10, toes[boardValue][0][2].y+20);
+    line(toes[boardValue][1][0].x-10, toes[boardValue][1][0].y+20, toes[boardValue][1][2].x+10, toes[boardValue][1][2].y+20);
   }
 }
