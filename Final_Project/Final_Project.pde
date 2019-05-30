@@ -110,7 +110,7 @@ public void setPlayer(boolean p){
 }
 
 void draw() {
-  background(200);
+  background(0, 202, 233);
   text(mouseX, mouseX, mouseY);
   text(mouseY, mouseX+25, mouseY);
   toes[0][0][0].showPlayer();

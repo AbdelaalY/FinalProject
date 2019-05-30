@@ -23,7 +23,7 @@ public class tictacfeet {
   }
 
   public void clickcheck(int mousex, int mousey) {
-    if(piece == 0 && mousex<= x+23 && mousex>= x-23 && mousey<= y+23 && mousey>= y-23) {     
+    if(piece == 0 && mousex<= x+10 && mousex>= x-10 && mousey<= y+20 && mousey>= y-20) {     
       if(getPlayer() == false) {
         piece = 1;
         setPlayer(true);
@@ -58,12 +58,12 @@ public class tictacfeet {
       //Ultimate winCheck
       if((toes[0][0][0].board==toes[1][0][0].board&&toes[1][0][0].board==toes[2][0][0].board&&toes[0][0][0].board==1)||(toes[3][0][0].board==toes[4][0][0].board&&toes[4][0][0].board==toes[5][0][0].board&&toes[3][0][0].board==1)||(toes[6][0][0].board==toes[7][0][0].board&&toes[7][0][0].board==toes[8][0][0].board&&toes[6][0][0].board==1)||(toes[0][0][0].board==toes[3][0][0].board&&toes[3][0][0].board==toes[6][0][0].board&&toes[0][0][0].board==1)||(toes[1][0][0].board==toes[4][0][0].board&&toes[4][0][0].board==toes[7][0][0].board&&toes[1][0][0].board==1)||(toes[2][0][0].board==toes[5][0][0].board&&toes[5][0][0].board==toes[8][0][0].board&&toes[2][0][0].board==1)||(toes[0][0][0].board==toes[4][0][0].board&&toes[4][0][0].board==toes[8][0][0].board&&toes[0][0][0].board==1)||(toes[2][0][0].board==toes[4][0][0].board&&toes[4][0][0].board==toes[6][0][0].board&&toes[4][0][0].board==1)){
         noLoop();
-        background(200);
+        background(0, 202, 233);
         textSize(50);
         text("Player 1 wins!", 100, 250);
       }else if((toes[0][0][0].board==toes[1][0][0].board&&toes[1][0][0].board==toes[2][0][0].board&&toes[0][0][0].board==-1)||(toes[3][0][0].board==toes[4][0][0].board&&toes[4][0][0].board==toes[5][0][0].board&&toes[3][0][0].board==-1)||(toes[6][0][0].board==toes[7][0][0].board&&toes[7][0][0].board==toes[8][0][0].board&&toes[6][0][0].board==-1)||(toes[0][0][0].board==toes[3][0][0].board&&toes[3][0][0].board==toes[6][0][0].board&&toes[0][0][0].board==-1)||(toes[1][0][0].board==toes[4][0][0].board&&toes[4][0][0].board==toes[7][0][0].board&&toes[1][0][0].board==-1)||(toes[2][0][0].board==toes[5][0][0].board&&toes[5][0][0].board==toes[8][0][0].board&&toes[2][0][0].board==-1)||(toes[0][0][0].board==toes[4][0][0].board&&toes[4][0][0].board==toes[8][0][0].board&&toes[0][0][0].board==-1)||(toes[2][0][0].board==toes[4][0][0].board&&toes[4][0][0].board==toes[6][0][0].board&&toes[4][0][0].board==-1)){
         noLoop();
-        background(200);
+        background(0, 202, 233);
         textSize(50);
         text("Player 2 wins!", 100, 250);
       }
