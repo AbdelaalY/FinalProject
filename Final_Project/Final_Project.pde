@@ -180,6 +180,15 @@ void draw() {
           toes[b][x][y].drawTile();
     }
   }else{
+    fill(255);
+    rect(0,0,500,500);
      Red.drawTank();
+  }
+}
+
+//tank stuff
+void keyPressed(){
+  if(keyCode == 38 ){
+    y= y-10;
   }
 }
