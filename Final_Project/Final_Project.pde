@@ -17,6 +17,7 @@ Tank Indigo = new Tank(color(75, 0, 130));
 Tank Violet = new Tank(color(238, 130, 238));
 private int x = 0;
 private int y =  0;
+int facing = 0;
 
 void setup() {
 //main setup
@@ -139,8 +140,16 @@ void keyPressed(){
     if(keyCode == ENTER)
       page=0;
   else if(page==2){
-    if(keyCode == 38)
+    if (keyCode == 38 ) {
       y= y-10;
+    } else if (keyCode == 40) {
+      y = y+10;
+    } else if (keyCode == 37) {
+      x=x-10;
+      facing = 1;
+    } else if (keyCode == 39) {
+      x=x+10;
+    }
   }
 }
 //player access
