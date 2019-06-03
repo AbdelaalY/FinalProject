@@ -121,17 +121,27 @@ void setup() {
 }
 
 void mouseClicked() {
-  if(page==0)
+  if(page==0){
     if(mouseX>=260&&mouseX<=430&&mouseY>=230&&mouseY<=400)
       page=1;
     else if(mouseX>=70&&mouseX<=240&&mouseY>=230&&mouseY<=400)
       page=2;
-  else if(page==1)
+  }else if(page==1)
   for(int b = 0; b<toes.length; b++)
     for(int x = 0; x<toes[b].length; x++)
-      for(int y = 0; y<toes[b][x].length; y++)
+      for(int y = 0; y<toes[b][x].length; y++){
         toes[b][x][y].clickcheck(mouseX, mouseY);
+      }
+}
 
+void keyPressed(){
+  if(page==1)
+    if(keyCode == ENTER)
+      page=0;
+  else if(page==2){
+    if(keyCode == 38)
+      y= y-10;
+  }
 }
 //player access
 public boolean getPlayer(){
@@ -182,13 +192,6 @@ void draw() {
   }else{
     fill(255);
     rect(0,0,500,500);
-     Red.drawTank();
-  }
-}
-
-//tank stuff
-void keyPressed(){
-  if(keyCode == 38 ){
-    y= y-10;
+    Red.drawTank();
   }
 }
