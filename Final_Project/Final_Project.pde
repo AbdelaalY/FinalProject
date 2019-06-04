@@ -3,21 +3,21 @@ tictacfeet[][][] toes = new tictacfeet[9][3][3];
 private boolean player;
 
 //main page
-private int page = 0;
+private int page = 2;
 private PImage board;
 private PImage tank;
 
 //tanks
 Tank Red = new Tank(color(255,0,0));
-Tank Orange = new Tank(color(255, 265, 0));
+Tank Orange = new Tank(color(255, 171, 0));
 Tank Yellow= new Tank(color(255, 255, 0)); 
 Tank Green = new Tank(color(0, 255, 0));
 Tank Blue= new Tank(color(0, 0, 255));
 Tank Indigo = new Tank(color(75, 0, 130));
 Tank Violet = new Tank(color(238, 130, 238));
+Tank Yousif = new Tank(color(111, 76, 7));
 private int x = 0;
 private int y =  0;
-int facing = 0;
 
 void setup() {
 //main setup
@@ -140,16 +140,8 @@ void keyPressed(){
     if(keyCode == ENTER)
       page=0;
   else if(page==2){
-    if (keyCode == 38 ) {
+    if(keyCode == 38)
       y= y-10;
-    } else if (keyCode == 40) {
-      y = y+10;
-    } else if (keyCode == 37) {
-      x=x-10;
-      facing = 1;
-    } else if (keyCode == 39) {
-      x=x+10;
-    }
   }
 }
 //player access
@@ -198,7 +190,28 @@ void draw() {
         for(int y = 0; y<toes[b][x].length; y++)
           toes[b][x][y].drawTile();
     }
-  }else{
+  }else if(page==2){
+    background(30);
+    fill(255, 0, 0);
+    rect(11, 440, 50, 50);
+    fill(255, 171, 0);
+    rect(72, 440, 50, 50);
+    fill(255, 255, 0);
+    rect(133, 440, 50, 50);
+    fill(0, 255, 0);
+    rect(194, 440, 50, 50);
+    fill(0, 0, 255);
+    rect(255, 440, 50, 50);
+    fill(75, 0, 130);
+    rect(316, 440, 50, 50);
+    fill(238, 130, 238);
+    rect(377, 440, 50, 50);
+    fill(111, 76, 7);
+    rect(439, 440, 50, 50);
+    fill(255);
+    text(mouseX, mouseX, mouseY);
+    text(mouseY, mouseX+25, mouseY);
+  }else if(page==3){
     fill(255);
     rect(0,0,500,500);
     Red.drawTank();
