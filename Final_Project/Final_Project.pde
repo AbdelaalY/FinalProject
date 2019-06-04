@@ -136,12 +136,18 @@ void mouseClicked() {
 }
 
 void keyPressed(){
-  if(page==1)
-    if(keyCode == ENTER)
-      page=0;
-  else if(page==2){
-    if(keyCode == 38)
-      y= y-10;
+  if (keyCode == 38 ) {
+    y= y-10;
+    facing = 0;
+  } else if (keyCode == 40) {
+    y = y+10;
+    facing = 3;
+  } else if (keyCode == 37) {
+    x=x-10;
+    facing = 1;
+  } else if (keyCode == 39) {
+    x=x+10;
+    facing = 2;
   }
 }
 //player access
