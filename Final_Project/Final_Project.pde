@@ -137,18 +137,20 @@ void mouseClicked() {
 
 void keyPressed(){
   if (keyCode == 38 ) {
-    y= y-10;
-    facing = 0;
-  } else if (keyCode == 40) {
-    y = y+10;
-    facing = 3;
-  } else if (keyCode == 37) {
-    x=x-10;
-    facing = 1;
-  } else if (keyCode == 39) {
-    x=x+10;
-    facing = 2;
-  }
+      y= y-10;
+      facing = 0;
+    } else if (keyCode == 40) {
+      y = y+10;
+      facing = 3;
+    } else if (keyCode == 37) {
+      x=x-10;
+      facing = 1;
+    } else if (keyCode == 39) {
+      x=x+10;
+      facing = 2;
+    } else if (keyCode == 32) {   
+      shells.add(new shell(x+25, y-20, facing));
+    }
 }
 //player access
 public boolean getPlayer(){
@@ -218,8 +220,13 @@ void draw() {
     text(mouseX, mouseX, mouseY);
     text(mouseY, mouseX+25, mouseY);
   }else if(page==3){
-    fill(255);
-    rect(0,0,500,500);
-    Red.drawTank();
+     fill(255);
+  rect(0, 0, 500, 500);
+  Red.drawTank();
+  System.out.println(facing);
+  for (shell x : shells)
+    if (x.on == true) {
+      x.drawShell();
+    }
   }
 }
