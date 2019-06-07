@@ -18,6 +18,7 @@ Tank Violet = new Tank(color(238, 130, 238));
 Tank Yousif = new Tank(color(111, 76, 7));
 private int x = 0;
 private int y =  0;
+private int facing;
 
 void setup() {
 //main setup
