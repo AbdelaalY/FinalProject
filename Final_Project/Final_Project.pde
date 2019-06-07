@@ -16,6 +16,7 @@ Tank Blue= new Tank(color(0, 0, 255));
 Tank Indigo = new Tank(color(75, 0, 130));
 Tank Violet = new Tank(color(238, 130, 238));
 Tank Yousif = new Tank(color(111, 76, 7));
+ArrayList<shell> shells = new ArrayList<shell>();
 private int x = 0;
 private int y =  0;
 private int facing;
