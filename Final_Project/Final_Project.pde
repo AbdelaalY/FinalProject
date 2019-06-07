@@ -133,6 +133,9 @@ void mouseClicked() {
       for(int y = 0; y<toes[b][x].length; y++){
         toes[b][x][y].clickcheck(mouseX, mouseY);
       }
+   else if(page==2)
+     if(mouseX>=100&&mouseX<=160&&mouseY>=120&&mouseY<=160)
+       page=3;
 }
 
 void keyPressed(){
@@ -217,16 +220,20 @@ void draw() {
     fill(111, 76, 7);
     rect(439, 440, 50, 50);
     fill(255);
+    textSize(30);
+    text("Play", 100, 150);
+    textSize(12);
     text(mouseX, mouseX, mouseY);
     text(mouseY, mouseX+25, mouseY);
   }else if(page==3){
-     fill(255);
-  rect(0, 0, 500, 500);
-  Red.drawTank();
-  System.out.println(facing);
-  for (shell x : shells)
-    if (x.on == true) {
-      x.drawShell();
+    background(255);
+    fill(255);
+    rect(0, 0, 500, 500);
+    Red.drawTank();
+    System.out.println(facing);
+    for (shell x : shells)
+      if (x.on == true) {
+        x.drawShell();
     }
   }
 }
