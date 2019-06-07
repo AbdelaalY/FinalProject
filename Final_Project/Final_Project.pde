@@ -141,21 +141,25 @@ void mouseClicked() {
 }
 
 void keyPressed(){
-  if (keyCode == 38 ) {
-      y= y-10;
-      facing = 0;
-    } else if (keyCode == 40) {
-      y = y+10;
-      facing = 3;
-    } else if (keyCode == 37) {
-      x=x-10;
-      facing = 1;
-    } else if (keyCode == 39) {
-      x=x+10;
-      facing = 2;
-    } else if (keyCode == 32) {   
-      shells.add(new shell(x+25, y-20, facing));
-    }
+  if(page==3){
+    if (keyCode == 38 ) {
+        y= y-10;
+        facing = 0;
+      } else if (keyCode == 40) {
+        y = y+10;
+        facing = 3;
+      } else if (keyCode == 37) {
+        x=x-10;
+        facing = 1;
+      } else if (keyCode == 39) {
+        x=x+10;
+        facing = 2;
+      } else if (keyCode == 32) {   
+        shells.add(new shell(x+25, y-20, facing));
+      }
+  }else if(page==1)
+    if(keyCode == ENTER)
+      page = 0;
 }
 //player access
 public boolean getPlayer(){
