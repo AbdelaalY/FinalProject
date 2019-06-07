@@ -178,10 +178,10 @@ public void setPage(int p){
 }
 
 void draw() {
+  text(mouseX, mouseX, mouseY);
+  text(mouseY, mouseX+25, mouseY);
   if(page==0){
     background(0);
-    text(mouseX, mouseX, mouseY);
-    text(mouseY, mouseX+25, mouseY);
     textSize(25);
     text("Welcome to DonkMonk: \n   Choose your game!", 100, 50);
     textSize(12);
@@ -189,8 +189,6 @@ void draw() {
     image(tank, 70, 230, 170, 170);
   }else if(page==1){
     background(0, 202, 233);
-    text(mouseX, mouseX, mouseY);
-    text(mouseY, mouseX+25, mouseY);
     toes[0][0][0].showPlayer();
     //board setup
     strokeWeight(3);
@@ -229,8 +227,6 @@ void draw() {
     textSize(30);
     text("Play", 100, 150);
     textSize(12);
-    text(mouseX, mouseX, mouseY);
-    text(mouseY, mouseX+25, mouseY);
   }else if(page==3){
     background(255);
     fill(255);
